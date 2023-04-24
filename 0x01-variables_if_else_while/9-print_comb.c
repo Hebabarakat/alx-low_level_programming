@@ -1,18 +1,22 @@
 #include <stdio.h>
 
 /**
- * main - Entry point
- * Description: Print all number of base 16
- * Return: 0 (success)
+ * main - Print combinations from 0 to 9
+ *
+ * Return: 0 on success
  */
 int main(void)
 {
-	char ch;
+	int i;
 
-	for (ch = '0'; ch <= '9'; ch++)
-		putchar(ch);
-	for (ch = 'a'; ch <= 'f'; ch++)
-		putchar(ch);
+	for (i = 0; i < 10; i++)
+	{
+		putchar('0' + i);
+		if (i == 9)
+			break;
+		putchar(',');
+		putchar(0x20);
+	}
 	putchar('\n');
 	return (0);
 }
