@@ -1,9 +1,9 @@
+#include <stdio.h>
 #include "main.h"
-
 /**
- * main - Entry point
- * Description: print _putchar follwed by a new line
- * Return: 0 (success)
+ * main - Prints _putchar
+ *
+ * Return: 0 if success
  */
 int main(void)
 {
