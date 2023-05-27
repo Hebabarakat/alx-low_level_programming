@@ -1,36 +1,28 @@
-#include "3-calc.h"
+#ifndef _CALC_H_
+#define _CALC_H_
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 /**
- * main - Entry point of program
+ * struct op - Struct op
  *
- * @argc: arguement count
- * @argv: arguement vector
- *
- * Return: 0 (success)
+ * @op: The operator
+ * @f: The function associated
  *
  */
-int main(int argc, char *argv[])
+typedef struct op
 {
-	int (*func)(int, int);
-	int num1, num2;
+	char *op;
+	int (*f)(int a, int b);
+} op_t;
 
-	if (argc != 4)
-	{
-		printf("Error\n"), exit(98);
-	}
+int op_add(int a, int b);
+int op_sub(int a, int b);
+int op_mul(int a, int b);
+int op_div(int a, int b);
+int op_mod(int a, int b);
+int (*get_op_func(char *s))(int, int);
 
-	num1 = atoi(argv[1]);
-	num2 = atoi(argv[3]);
-	func = get_op_func(argv[2]);
-
-	if (!func)
-	{
-		printf("Error\n"), exit(99);
-	}
-	if ((argv[2][0] == '/' || argv[2][0] == '%') && atoi(argv[3]) == 0)
-	{
-		printf("Error\n"), exit(100);
-	}
-	printf("%d\n", func(num1, num2));
-	return (0);
-}
+#endif
